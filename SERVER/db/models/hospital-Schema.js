@@ -24,6 +24,11 @@ const hospitalSchema = mongoose.Schema({
     required: true,
     trim: true,
   },
+
+  image: {
+    type: String,
+  },
+
   address: addressSchema,
   departments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Department' }],
 });
