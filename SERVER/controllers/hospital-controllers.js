@@ -14,11 +14,11 @@ module.exports.getHospitalsById = (req, res) => {
 // 3) POST Hospital
 
 module.exports.postHospitals = async (req, res) => {
-  const hospital = await Hospital.create({
-    name: req.body.name,
-    image: `http//:localhost:${process.env.PORT}/uploads/${req.file.filename}`,
-  });
-  res.status(200).json({ message: 'You can now post hospitals', hospital });
+  // const hospital = await Hospital.create({
+  //   name: req.body.name,
+  //   image: `http//:localhost:${process.env.PORT}/uploads/${req.file.filename}`,
+  // });
+  res.status(200).json({ message: 'You can now post hospitals' });
 };
 
 // 4) PATCH hospitals by id
@@ -39,5 +39,5 @@ module.exports.deleteHospitals = async (req, res) => {
 
 module.exports.deleteHospitalsByID = async (req, res) => {
   const hospital = await Hospital.findByIdAndDelete();
-  res.status(200).json({ message: 'delete dept by id', hospital });
+  res.status(200).json({ message: 'delete hospital by id', hospital });
 };

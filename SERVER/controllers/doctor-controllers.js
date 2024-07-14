@@ -14,11 +14,11 @@ module.exports.getDoctorById = (req, res) => {
 // 3) POST Doctors
 
 module.exports.postDoctors = async (req, res) => {
-  const doctor = await Doctor.create({
-    name: req.body.name,
-    image: `http//:localhost:${process.env.PORT}/uploads/${req.file.filename}`,
-  });
-  res.status(200).json({ message: 'You can now post doctors', doctor });
+  // const doctor = await Doctor.create({
+  //   name: req.body.name,
+  //   image: `http//:localhost:${process.env.PORT}/uploads/${req.file.filename}`,
+  // });
+  res.status(200).json({ message: 'You can now post doctors' });
 };
 
 // 4) PATCH Doctor by id

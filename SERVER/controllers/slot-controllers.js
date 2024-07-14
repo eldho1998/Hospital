@@ -14,9 +14,9 @@ module.exports.getSlotsById = (req, res) => {
 // 3) POST Slots
 
 module.exports.postSlots = async (req, res) => {
-  const { body } = req;
-  const slot = await Slot.create(body);
-  res.status(200).json({ message: 'You can now post Slots', Slot });
+  // const { body } = req;
+  // const slot = await Slot.create(body);
+  res.status(200).json({ message: 'You can now post Slots' });
 };
 
 // 4) PATCH Slots by id
