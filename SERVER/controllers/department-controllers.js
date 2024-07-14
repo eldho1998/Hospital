@@ -6,12 +6,14 @@ dotenv.config({ path: './.env' });
 
 module.exports.getDepartments = async (req, res) => {
   const departments = await Department.find();
-  res.status(200).json({ message: 'Get All Departments' }, departments);
+  res.status(200).json({ message: 'Get All Departments', departments });
 };
 
 // 2) GET by department id
-module.exports.getDepartmentsById = (req, res) => {
-  res.status(200).json({ message: 'Getting Department By id' });
+module.exports.getDepartmentsById = async (req, res) => {
+  const { id } = req.params;
+  const departments = await Department.findById();
+  res.status(201).json({ message: 'Getting Department By id' });
 };
 
 // 3) POST departments
