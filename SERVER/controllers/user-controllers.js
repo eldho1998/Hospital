@@ -9,7 +9,7 @@ module.exports.getUsers = async (req, res) => {
 // 2. Get users by id
 module.exports.getUsersById = async (req, res) => {
   //   const { id } = req.params;
-  const user = await user.findById();
+  const user = await User.find();
   res.status(200).json({ message: 'Get All users by id' });
 };
 
@@ -31,13 +31,13 @@ module.exports.patchUsers = async (req, res) => {
 // 5. delete all Users
 
 module.exports.deleteAllUsers = async (req, res) => {
-  const user = await User.delete();
+  const user = await User.deleteMany();
   res.status(200).json({ message: 'delete all users' });
 };
 
 // 6. Delete  Users by id
 
 module.exports.deleteUserById = async (req, res) => {
-  const user = await User.delete();
+  const user = await User.findByIdAndDelete();
   res.status(200).json({ message: 'delete user by id' });
 };

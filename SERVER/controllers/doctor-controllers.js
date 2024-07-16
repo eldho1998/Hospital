@@ -1,4 +1,5 @@
 const Doctor = require('../db/models/doctor-Schema');
+const genPassword = require('generate-password');
 
 // 1) GET all Doctors (rejux)
 module.exports.getDoctors = async (req, res) => {
@@ -40,4 +41,20 @@ module.exports.deleteDoctors = async (req, res) => {
 module.exports.deleteDoctorByID = async (req, res) => {
   const doctor = await Doctor.findByIdAndDelete();
   res.status(200).json({ message: 'delete doctor by id', doctor });
+};
+
+// 7. SIGN UP DOCTOR BY ADMIN
+
+module.exports.doctorSignup = async (req, res) => {
+  const body = req.body;
+  const doctor = await Doctor.findOne({ email: body.email });
+  res.status(403).json({ message: 'Email id already taken.Give me another' });
+
+  //password generate by pass-generator package
+
+  const doctorPassword = genPassword.generate({
+    length: 10,
+    numbers: true,
+  });
+  console.log(doctorPassword);
 };
